@@ -15,7 +15,13 @@ data:
       - "ApplyReplacements"
       clusters:
       - https://kubernetes.default.svc
-
+    - apiGroups:
+      - "velero.io"
+      kinds:
+      - Backup
+      clusters:
+      - "*"
+      labelSelector: "!gitops-managed"
 ---
 apiVersion: v1
 kind: ConfigMap
